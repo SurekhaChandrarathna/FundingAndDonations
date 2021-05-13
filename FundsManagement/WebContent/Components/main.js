@@ -1,42 +1,62 @@
+//hide status messages
+$(document).ready(function()
+{
+ $("#alertSuccess").hide();
+ $("#alertError").hide();
+});
 
-// Fireup the plugins
-$(document).ready(function(){
+
+function validateItemForm()
+{
 	
-	// initialise  slideshow
-	 $('.flexslider').flexslider({
-        animation: "slide",
-        start: function(slider){
-          $('body').removeClass('loading');
-        }
-      });
+	if ($("#name").val().trim() == "")
+	 {
+		return "Please insert your name.";
+	 }
+	
+	if ($("#email").val().trim() == "")
+	 {
+		return "Please insert your email.";
+	 }
+	
+	if ($("#amount").val().trim() == "")
+	 {
+		return "Please insert donating amount";
+	 }
+	
+	if ($("#cardNumber").val().trim() == "")
+	 {
+		return "Please insert your card number.";
+	 }
+	
+	if ($("#CVC").val().trim() == "")
+	 {
+		return "Please insert CVC";
+	 }
+	
+	return true;
+}
+
+
+$(document).on("click", "#btnSave", function(event)
+{
+	// Clear status messages-------------
+	 $("#alertSuccess").text("");
+	 $("#alertSuccess").hide();
+	 $("#alertError").text("");
+	 $("#alertError").hide();
+	 
+	// Form validation----------------
+	var status = validateItemForm();
+	// If not valid-------------------
+	if (status != true)
+	 {
+		 $("#alertError").text(status);
+		 $("#alertError").show();
+		 return;
+	 } 
 
 });
-/**
- * Handles toggling the navigation menu for small screens.
- */
-( function() {
-	var button = document.getElementById( 'topnav' ).getElementsByTagName( 'div' )[0],
-	    menu   = document.getElementById( 'topnav' ).getElementsByTagName( 'ul' )[0];
 
-	if ( undefined === button )
-		return false;
 
-	// Hide button if menu is missing or empty.
-	if ( undefined === menu || ! menu.childNodes.length ) {
-		button.style.display = 'none';
-		return false;
-	}
 
-	button.onclick = function() {
-		if ( -1 == menu.className.indexOf( 'srt-menu' ) )
-			menu.className = 'srt-menu';
-
-		if ( -1 != button.className.indexOf( 'toggled-on' ) ) {
-			button.className = button.className.replace( ' toggled-on', '' );
-			menu.className = menu.className.replace( ' toggled-on', '' );
-		} else {
-			button.className += ' toggled-on';
-			menu.className += ' toggled-on';
-		}
-	};
-} )();
