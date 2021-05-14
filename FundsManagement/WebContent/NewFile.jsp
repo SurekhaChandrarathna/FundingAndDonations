@@ -31,7 +31,7 @@
 			  <a href="#" >Home</a>
 			  <a href="#">Products</a>
 			  <a href="#" >My Projects</a>
-			  <a href="../../../FundsManagement/NewFile.jsp" class="active">Funding HelpDesk</a>
+			  <a href="#" class="active">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
 			  </a>
@@ -51,98 +51,15 @@
 	
 <!-- navigation bar -->
 	<br>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="images/cable.jpg" alt="First slide" height="500px">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/hard.jpg" alt="Second slide" height="500px">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/pen.jpg" alt="Third slide" height="500px">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-  <br><br><br>
-  
-  
-  <center><h3> Welcome to GadgetBadget </h3>
-  		<h2>Hope to donate and help young researchers ??</h2>
-  	
-     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
-  		Donate->>
-	</button></center>
+
 	
-	<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Fill Your details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="formDonation" name="formDonation">
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">Name</label>
-		    <div class="col-sm-10">
-		      <input type="hidden" name="donationID">
-		      <input type="text" class="form-control"  placeholder="Enter your Name" name="name" id="name">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your Email" name="email" id="email">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label class="col-sm-2 col-form-label">Amount</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter donating amount" name="amount" id="amount" >
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">Card Number</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your card number" name="cardNumber" id="cardNumber">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">CVC</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your CVC" name="CVC" id="CVC">
-		    </div>
-		  </div>
-		  
-		  <div id="alertSuccess" class="alert alert-success"></div>
- 		  <div id="alertError" class="alert alert-danger"></div>
-		  
-		  <input type="button" id="btnSave" value="Save" class="btn btn-primary">
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-  </div>  
+ <div id="divItemsGrid">
+ <%
+ Donations itemObj = new Donations();
+ out.print(itemObj.readDonations());
+ %>
 </div>
+	
  <br><br>
 
 
