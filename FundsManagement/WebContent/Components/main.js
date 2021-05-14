@@ -6,7 +6,7 @@ $(document).ready(function()
 });
 
 
-function validateItemForm()
+function validateDonationForm()
 {
 	
 	if ($("#name").val().trim() == "")
@@ -47,7 +47,7 @@ $(document).on("click", "#btnSave", function(event)
 	 $("#alertError").hide();
 	 
 	// Form validation----------------
-	var status = validateItemForm();
+	var status = validateDonationForm();
 	// If not valid-------------------
 	if (status != true)
 	 {
@@ -55,8 +55,52 @@ $(document).on("click", "#btnSave", function(event)
 		 $("#alertError").show();
 		 return;
 	 } 
+	
+	 var type = ($("#hidDonationIDSave").val() == "") ? "POST" : "PUT";
+	 $.ajax(
+	 {
+		 url : "DonationsAPI",
+		 type : type,
+		 data : $("#formDonation").serialize(),
+		 dataType : "text",
+		 complete : function(response, status)
+			 {
+				 onDonationSaveComplete(response.responseText, status);
+			 }
+	 }); 
 
 });
+
+function onDonationSaveComplete(response, status)
+{
+	if (status == "success")
+	{
+		var resultSet = JSON.parse(response);
+		if (resultSet.status.trim() == "success")
+		{
+			$("#alertSuccess").text("Successfully saved.");
+			$("#alertSuccess").show();
+			
+			$("#divItemsGrid").html(resultSet.data);
+		} else if (resultSet.status.trim() == "error")
+		{
+			$("#alertError").text(resultSet.data);
+			$("#alertError").show();
+		}
+		} else if (status == "error")
+		{
+			$("#alertError").text("Error while saving.");
+			$("#alertError").show();
+	} else
+	{
+		$("#alertError").text("Unknown error while saving..");
+		$("#alertError").show();
+	
+	}
+	
+	$("#hidDonationIDSave").val("");
+	$("#formDonation")[0].reset();
+}
 
 
 

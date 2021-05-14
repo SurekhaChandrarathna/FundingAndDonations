@@ -91,6 +91,7 @@ public class FundsAdmin {
 							+ "<input name='ProjectID' type='text' value='"+ProjectID+"' hidden>"
 							+ "<input name='UserEmail' type='text' value='"+UserEmail+"' hidden><br><br>"
 							+ "<input type='hidden' class='form-control'  name='Budget' value='"+Budget+"'  readonly>"
+							
 							+ "<label>Funding amount :</label><br>"
 							+ "<input type='text' name='amount' class='form-control' placeholder='Enter funding amount' required>"
 					+ "</form></td>"
@@ -1179,13 +1180,17 @@ public class FundsAdmin {
 					
 					 preparedStmt.execute();
 					 con.close();
-					 output = "Donation is successful";
+					 //output = "Donation is successful";
+					 
+					 String newDonations = readDonations();
+					 output = "{\"status\":\"success\", \"data\": \"" +
+							 newDonations + "\"}";
 				
 				 }
 				 catch (Exception e)
 				 {
-					 output = "Error while donating.";
-					 System.err.println(e.getMessage());
+					 output = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
+							 System.err.println(e.getMessage());
 				 }
 				 
 				 return output;
@@ -1251,7 +1256,7 @@ public class FundsAdmin {
 					// buttons
 					output += "<td>"
 								+ "<form action='../../../GadgetBadget/DonationsService/Donations/Delete' method='post'>"
-								+ "<input name='btnRemove' type='submit' value='Transfer for funds' class='btn btn-success'>"
+								+ "<input name='btnRemove' type='button' value='Transfer' class='btnRemove btn btn-danger' data-donationID='" + donationID + "'>"
 								+ "<input name='donationID' type='hidden' value='" + donationID+ "'>"
 								+ "</form>"
 							+ "</td></tr></tbody>";
