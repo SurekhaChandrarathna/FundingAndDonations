@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="model.Donations"%>
+     <%@page import="model.FundsAdmin"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="ISO-8859-1">
 
+	
 	<link rel="stylesheet" href="../../../FundsManagement/Views/Home.css">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +19,7 @@
 	
 <title>GadgetBadget</title>
 </head>
+
 <body>
 
 <!-- navigation bar -->
@@ -28,22 +31,21 @@
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#" >Home</a>
+			  <a href="../../../FundsManagement/AdminHome.jsp" >Home</a>
 			  <a href="#">Products</a>
-			  <a href="../../../FundsManagement/MyProjects.jsp" >My Projects</a>
+			  
+			  <a href="../../../FundsManagement/AdminViewDo.jsp">Donations</a>
 			  <a href="#" class="active">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
 			  </a>
 			
 			</div>
-			
-      
 			<div class="dropdown">
 			   <img src="images/avatar.png" class="img-fluid" alt="avatar1" width="50" height="80" >
 			  <div class="dropdown-content">
 			    <a href="#">Profile</a>
-			    <a href="#">Log Out</a>
+			    <a href="Home.jsp">Log Out</a>
 			  </div>
 			</div>			
 		</div>	
@@ -51,105 +53,35 @@
 	
 <!-- navigation bar -->
 	<br>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="images/cable.jpg" alt="First slide" height="500px">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/hard.jpg" alt="Second slide" height="500px">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/pen.jpg" alt="Third slide" height="500px">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+  <img class="card-img-top" src="images/adminpage.jpg" alt="Card image cap"  height="500px">
   <br><br><br>
   
-  
-  <center><h3> Welcome to GadgetBadget </h3>
-  		<h2>Hope to donate and help young researchers ??</h2>
-  	
-     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
-  		Donate->>
-	</button></center>
-	
-	<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Fill Your details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="formDonation" name="formDonation">
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">Name</label>
-		    <div class="col-sm-10">
-		      <input type="hidden" name="donationID">
-		      <input type="text" class="form-control"  placeholder="Enter your Name" name="name" id="name">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your Email" name="email" id="email">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label class="col-sm-2 col-form-label">Amount</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter donating amount" name="amount" id="amount" >
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">Card Number</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your card number" name="cardNumber" id="cardNumber">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">CVC</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your CVC" name="CVC" id="CVC">
-		    </div>
-		  </div>
-		  
-		  <div id="alertSuccess" class="alert alert-success"></div>
- 		  <div id="alertError" class="alert alert-danger"></div>
-		  
-		  <input type="button" id="btnSave" value="Save" class="btn btn-primary">
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-  </div>  
+  <div id="divItemsGrid">
+ <%
+ FundsAdmin FundsObj = new FundsAdmin();
+ out.print(FundsObj.readFundRequests());
+ %>
 </div>
- <br><br>
+  
+
+<br><br>
+<br><br>
+<!-- ============================================================================================================= -->
 
 
 
-	
 
 
+
+
+
+
+
+
+
+
+
+<!-- ============================================================================================================= -->
 <!-- Footer -->
 <footer class="page-footer font-small color-dark" style="background-color:#1f3a93">
 
@@ -279,8 +211,7 @@ function myFunction() {
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
+<!-- bootstrap -->
 
 </body>
 </html>

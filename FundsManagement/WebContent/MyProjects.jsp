@@ -82,8 +82,8 @@
   
  <div >
  <%
- FundsAdmin itemObj = new FundsAdmin();
- out.print(itemObj.readMyProjects());
+ FundsAdmin FundsObj = new FundsAdmin();
+ out.print(FundsObj.readMyProjects());
  %>
 </div> 
 

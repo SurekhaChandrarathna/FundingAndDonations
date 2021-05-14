@@ -28,22 +28,21 @@
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#" >Home</a>
+			  <a href="../../../FundsManagement/AdminHome.jsp">Home</a>
 			  <a href="#">Products</a>
-			  <a href="#" >My Projects</a>
-			  <a href="#" class="active">Funding HelpDesk</a>
+			  
+			  <a href="#"  class="active">Donations</a>
+			  <a href="../../../FundsManagement/FundingHelpDesk.jsp">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
 			  </a>
 			
 			</div>
-			
-      
 			<div class="dropdown">
 			   <img src="images/avatar.png" class="img-fluid" alt="avatar1" width="50" height="80" >
 			  <div class="dropdown-content">
 			    <a href="#">Profile</a>
-			    <a href="#">Log Out</a>
+			    <a href="Home.jsp">Log Out</a>
 			  </div>
 			</div>			
 		</div>	
@@ -51,20 +50,20 @@
 	
 <!-- navigation bar -->
 	<br>
+  <img class="card-img-top" src="images/adminpage.jpg" alt="Card image cap"  height="500px">
+  <br><br><br>
+	<br>
 
 	
  <div id="divItemsGrid">
  <%
- FundsAdmin itemObj = new FundsAdmin();
- out.print(itemObj.readDonations());
+ FundsAdmin FundsObj = new FundsAdmin();
+ out.print(FundsObj.readDonations());
  %>
 </div>
 	
  <br><br>
 
-
-
-	
 
 
 <!-- Footer -->
