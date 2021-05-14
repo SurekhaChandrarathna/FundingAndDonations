@@ -3,6 +3,8 @@ $(document).ready(function()
 {
  $("#alertSuccess").hide();
  $("#alertError").hide();
+ $("#alertSuccess2").hide();
+ $("#alertError2").hide();
 });
 
 
@@ -146,6 +148,84 @@ function onDonationDeleteComplete(response, status)
 		$("#alertError").text("Unknown error while deleting..");
 		$("#alertError").show();
 	}
+}
+
+//--------------------------------------------------------------------------
+function validateRequestForm()
+{
+	
+	if ($("#BankCardNumber").val().trim() == "")
+	 {
+		return "Please insert BC number.";
+	 }
+	
+	
+	return true;
+}
+
+
+$(document).on("click", "#submit", function(event)
+{
+	// Clear status messages-------------
+	 $("#alertSuccess2").text("");
+	 $("#alertSuccess2").hide();
+	 $("#alertError2").text("");
+	 $("#alertError2").hide();
+	 
+	// Form validation----------------
+	var status = validateRequestForm();
+	// If not valid-------------------
+	if (status != true)
+	 {
+		 $("#alertError2").text(status);
+		 $("#alertError2").show();
+		 return;
+	 } 
+	
+	 var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+	 $.ajax(
+	 {
+		 url : "FundsAPI",
+		 type : type,
+		 data : $("#FormRequestForFund").serialize(),
+		 dataType : "text",
+		 complete : function(response, status)
+			 {
+			 	onRequestSaveComplete(response.responseText, status);
+			 }
+	 }); 
+
+});
+
+function onRequestSaveComplete(response, status)
+{
+	if (status == "success")
+	{
+		var resultSet = JSON.parse(response);
+		if (resultSet.status.trim() == "success")
+		{
+			$("#alertSuccess2").text("Successfully saved.");
+			$("#alertSuccess2").show();
+			
+			$("#divItems1Grid").html(resultSet.data);
+		} else if (resultSet.status.trim() == "error")
+		{
+			$("#alertError2").text(resultSet.data);
+			$("#alertError2").show();
+		}
+		} else if (status == "error")
+		{
+			$("#alertError2").text("Error while saving.");
+			$("#alertError2").show();
+	} else
+	{
+		$("#alertError2").text("Unknown error while saving..");
+		$("#alertError2").show();
+	
+	}
+	
+	$("#hidItemIDSave").val("");
+	$("#FormRequestForFund")[0].reset();
 }
 
 

@@ -102,7 +102,7 @@
 		  <div class="form-group row">
 		    <label  class="col-sm-2 col-form-label">Name</label>
 		    <div class="col-sm-10">
-		      <input type="hidden" name="donationID">
+		     
 		      <input type="text" class="form-control"  placeholder="Enter your Name" name="name" id="name">
 		    </div>
 		  </div>
@@ -130,12 +130,13 @@
 		      <input type="text" class="form-control"  placeholder="Enter your CVC" name="CVC" id="CVC">
 		    </div>
 		  </div>
-		  <input type="hidden" id="hidDonationIDSave" name="hidDonationIDSave" value="">
+		 
 		  
 		  <div id="alertSuccess" class="alert alert-success"></div>
  		  <div id="alertError" class="alert alert-danger"></div>
 		  
 		  <input type="button" id="btnSave" value="Donate" class="btn btn-primary">
+		   <input type="hidden" id="hidDonationIDSave" name="hidDonationIDSave" value="">
 		</form>
       </div>
       <div class="modal-footer">

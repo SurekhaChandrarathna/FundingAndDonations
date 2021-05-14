@@ -1,5 +1,7 @@
 package model;
 
+import model.FundsAdmin;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/FundsAPI")
 public class FundsAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	FundsAdmin fundsobj = new FundsAdmin();
+	
     
     public FundsAPI() {
         super();
@@ -24,6 +29,11 @@ public class FundsAPI extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		
+		
+		String output = fundsobj.insertFundRequests(request.getParameter("UserEmail"),
+				request.getParameter("ProjectID"),
+				request.getParameter("BankCardNumber"));
+				response.getWriter().write(output); 
 		
 	}
 

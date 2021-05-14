@@ -56,7 +56,7 @@
   <img class="card-img-top" src="images/adminpage.jpg" alt="Card image cap"  height="500px">
   <br><br><br>
   
-  <div id="divItemsGrid">
+  <div id="divItems1Grid">
  <%
  FundsAdmin FundsObj = new FundsAdmin();
  out.print(FundsObj.readFundRequests());
