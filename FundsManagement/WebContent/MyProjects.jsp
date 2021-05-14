@@ -86,7 +86,7 @@
  out.print(itemObj.readMyProjects());
  %>
 </div> 
- 
+
 
 <!-- Footer -->
 <footer class="page-footer font-small color-dark" style="background-color:#1f3a93">
