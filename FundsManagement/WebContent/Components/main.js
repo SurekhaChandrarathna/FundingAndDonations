@@ -81,7 +81,7 @@ function onDonationSaveComplete(response, status)
 			$("#alertSuccess").text("Successfully saved.");
 			$("#alertSuccess").show();
 			
-			$("#divItemsGrid").html(resultSet.data);
+			$("#divDonationGrid").html(resultSet.data);
 		} else if (resultSet.status.trim() == "error")
 		{
 			$("#alertError").text(resultSet.data);
@@ -100,6 +100,52 @@ function onDonationSaveComplete(response, status)
 	
 	$("#hidDonationIDSave").val("");
 	$("#formDonation")[0].reset();
+}
+
+
+//Delete==========================================
+$(document).on("click", ".btnRemove", function(event)
+		{
+		$.ajax(
+		{
+			url : "DonationsAPI",
+			type : "DELETE",
+			data : "donationID=" + $(this).data("donationID"),
+			dataType : "text",
+			complete : function(response, status)
+		{
+				onDonationDeleteComplete(response.responseText, status);
+		}
+		});
+	});
+
+
+
+function onDonationDeleteComplete(response, status)
+{
+	if (status == "success")
+	{
+		var resultSet = JSON.parse(response);
+		if (resultSet.status.trim() == "success")
+		{
+			$("#alertSuccess").text("Successfully deleted.");
+			$("#alertSuccess").show();
+			$("#divDonationGrid").html(resultSet.data);
+		} else if (resultSet.status.trim() == "error")
+		{
+			$("#alertError").text(resultSet.data);
+			$("#alertError").show();
+		}
+		
+		} else if (status == "error")
+		{
+			$("#alertError").text("Error while deleting.");
+			$("#alertError").show();
+	} else
+	{
+		$("#alertError").text("Unknown error while deleting..");
+		$("#alertError").show();
+	}
 }
 
 

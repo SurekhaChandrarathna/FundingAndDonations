@@ -55,7 +55,7 @@
 	<br>
 
 	
- <div id="divItemsGrid">
+ <div id="divDonationGrid">
  <%
  FundsAdmin FundsObj = new FundsAdmin();
  out.print(FundsObj.readDonations());
