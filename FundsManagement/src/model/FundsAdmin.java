@@ -919,7 +919,7 @@ public class FundsAdmin {
 					if(status==0) {
 						
 						output +=  "<td>"+
-								"        <form action='../../../GadgetBadget/FundingDeskCusService/FundingDeskCus/insertFundRequests' method=\"post\">" + 
+								"        <form name='FormRequestForFund' id='FormRequestForFund'>" + 
 								"		    <label>Bank Card Number</label>" + 
 								"			  <input type='hidden' name='UserEmail' value='"+UserEmail+"' >\r\n" + 
 								"				<input type='hidden' name='ProjectID' value='"+ProjectID+"' >\r\n" + 

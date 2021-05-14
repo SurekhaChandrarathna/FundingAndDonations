@@ -31,6 +31,7 @@ public class DonationsAPI extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 		// TODO Auto-generated method stub
 		 
 		
