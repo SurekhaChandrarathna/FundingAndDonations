@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DonationsAPI")
-public class DonationsAPI extends HttpServlet {
+public class FundsAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public DonationsAPI() {
+    public FundsAPI() {
         super();
         // TODO Auto-generated constructor stub
     }

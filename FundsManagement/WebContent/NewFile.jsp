@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="model.Donations"%>
+    <%@page import="model.FundsAdmin"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +55,7 @@
 	
  <div id="divItemsGrid">
  <%
- Donations itemObj = new Donations();
+ FundsAdmin itemObj = new FundsAdmin();
  out.print(itemObj.readDonations());
  %>
 </div>

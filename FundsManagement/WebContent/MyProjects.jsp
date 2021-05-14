@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="model.Donations"%>
+    <%@page import="model.FundsAdmin"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +30,8 @@
    			<div class="topnav" id="myTopnav">
 			  <a href="#" >Home</a>
 			  <a href="#">Products</a>
-			  <a href="../../../FundsManagement/MyProjects.jsp" >My Projects</a>
-			  <a href="../../../FundsManagement/NewFile.jsp" class="active">Funding HelpDesk</a>
+			  <a href="#" class="active">My Projects</a>
+			  <a href="#" >Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
 			  </a>
@@ -80,75 +80,13 @@
   <br><br><br>
   
   
-  <center><h3> Welcome to GadgetBadget </h3>
-  		<h2>Hope to donate and help young researchers ??</h2>
-  	
-     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
-  		Donate->>
-	</button></center>
-	
-	<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Fill Your details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="formDonation" name="formDonation">
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">Name</label>
-		    <div class="col-sm-10">
-		      <input type="hidden" name="donationID">
-		      <input type="text" class="form-control"  placeholder="Enter your Name" name="name" id="name">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your Email" name="email" id="email">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label class="col-sm-2 col-form-label">Amount</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter donating amount" name="amount" id="amount" >
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">Card Number</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your card number" name="cardNumber" id="cardNumber">
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">CVC</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="Enter your CVC" name="CVC" id="CVC">
-		    </div>
-		  </div>
-		  
-		  <div id="alertSuccess" class="alert alert-success"></div>
- 		  <div id="alertError" class="alert alert-danger"></div>
-		  
-		  <input type="button" id="btnSave" value="Save" class="btn btn-primary">
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-  </div>  
-</div>
- <br><br>
-
-
-
-	
-
+ <div >
+ <%
+ FundsAdmin itemObj = new FundsAdmin();
+ out.print(itemObj.readMyProjects());
+ %>
+</div> 
+ 
 
 <!-- Footer -->
 <footer class="page-footer font-small color-dark" style="background-color:#1f3a93">
